@@ -15,9 +15,16 @@ makeRows(16,16);
 var color = [, "#3C9EE7", "#E7993C",
             "#E73C99", "#3CE746", "#E7993C"];
   
-        document.querySelectorAll(".grid-item").forEach(e => e.addEventListener("mouseover", function (e) {
-            e.target.style.background = color[Math.floor(Math.random() * color.length)];
-}));
+document.querySelectorAll(".grid-item").forEach(
+    e => {e.addEventListener("mouseover", (
+        e => e.target.style.backgroundColor = color[Math.floor(Math.random() * color.length)])
+)});
         
-        
-        
+const btnClear = document.getElementById("btnReset");
+
+btnClear.addEventListener("click", () => {
+    document.querySelectorAll(".grid-item").forEach(
+        e => { 
+            e.style.backgroundColor = "black";
+    });
+});

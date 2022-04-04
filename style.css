@@ -5,7 +5,7 @@
 
 #container {
     display: grid;
-    padding: 100px;
+    padding: 100px; /* no vale para mucho es solo para verlo mejor por ahora */
     grid-gap: 1em;
     grid-template-rows: repeat (var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -13,7 +13,9 @@
 }
 
 #btnReset {
-    margin: 30px auto;
+    width: 150px;
+    height: 50px;
+    margin: 30px 30px;
 }
 
 .grid-item {
