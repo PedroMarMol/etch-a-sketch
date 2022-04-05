@@ -1,3 +1,28 @@
+let gridSize = Number(
+    prompt("Enter amount of squares per side to make the new grid")
+);
+
+const btnColorReset = document.getElementById("btnColorReset");
+
+btnColorReset.addEventListener("click", () => {       // resets the grid color
+    document.querySelectorAll(".grid-item").forEach(
+        e => { 
+            e.style.backgroundColor = "#202324"; // this is firefoxs default background color 
+    });
+});
+
+// btnGridReset.addEventListener("click", reset());
+
+// function reset() {
+//     document
+//         .querySelectorAll(".grid-item")
+//         .forEach((e) => e.parentNode.removeChild(e));
+// }
+
+// function redrawBoard(size){
+//     clearDivs();
+// }
+
 const container = document.getElementById("container");
 
 function makeRows(rows, cols) {
@@ -10,7 +35,7 @@ function makeRows(rows, cols) {
     };
 };
 
-makeRows(16,16);
+makeRows(gridSize, gridSize);
 
 var color = [, "#3C9EE7", "#E7993C",
             "#E73C99", "#3CE746", "#E7993C"];
@@ -19,12 +44,3 @@ document.querySelectorAll(".grid-item").forEach(
     e => {e.addEventListener("mouseover", (
         e => e.target.style.backgroundColor = color[Math.floor(Math.random() * color.length)])
 )});
-        
-const btnClear = document.getElementById("btnReset");
-
-btnClear.addEventListener("click", () => {
-    document.querySelectorAll(".grid-item").forEach(
-        e => { 
-            e.style.backgroundColor = "black";
-    });
-});
