@@ -1,7 +1,10 @@
 let gridSize = Number(
-    prompt("Enter amount of squares per side to make the new grid")
+    prompt("Enter amount of squares per side to make the grid (between 0 and 100)")
 );
 
+while (gridSize <= 0 || gridSize >= 100) {
+    gridSize = Number(prompt("Enter a valid amount (between 0 and 100)"));
+};
 
 const btnColorReset = document.getElementById("btnColorReset");
 btnColorReset.innerHTML = "Color Reset";
@@ -27,8 +30,11 @@ function clearDivs(){                                   // function that removes
 function redrawBoard(){
     clearDivs();
     let newSize = Number(
-        prompt("Enter amount of squares per side to make the new grid")
+        prompt("Enter amount of squares per side to make the grid (between 0 and 100)")
     );
+    while (newSize <= 0 || newSize >= 100) {
+        newSize = Number(prompt("Enter a valid amount (between 0 and 100)"));
+    };
     makeRows(newSize, newSize);
     colorGrid();
 }
