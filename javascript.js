@@ -2,26 +2,36 @@ let gridSize = Number(
     prompt("Enter amount of squares per side to make the new grid")
 );
 
+
 const btnColorReset = document.getElementById("btnColorReset");
+btnColorReset.innerHTML = "Color Reset";
 
 btnColorReset.addEventListener("click", () => {       // resets the grid color
     document.querySelectorAll(".grid-item").forEach(
         e => { 
-            e.style.backgroundColor = "#202324"; // this is firefoxs default background color 
+            e.style.backgroundColor = "#202324";
     });
 });
 
-// btnGridReset.addEventListener("click", reset());
+const btnGridReset = document.getElementById("btnGridReset");
+btnGridReset.innerHTML = "New dimensions";
 
-// function reset() {
-//     document
-//         .querySelectorAll(".grid-item")
-//         .forEach((e) => e.parentNode.removeChild(e));
-// }
+btnGridReset.addEventListener("click", redrawBoard);
 
-// function redrawBoard(size){
-//     clearDivs();
-// }
+function clearDivs(){                                   // function that removes the divs from the grid 
+    document
+        .querySelectorAll(".grid-item")
+        .forEach((e) => e.parentNode.removeChild(e))
+}
+
+function redrawBoard(){
+    clearDivs();
+    let newSize = Number(
+        prompt("Enter amount of squares per side to make the new grid")
+    );
+    makeRows(newSize, newSize);
+    colorGrid();
+}
 
 const container = document.getElementById("container");
 
@@ -40,7 +50,11 @@ makeRows(gridSize, gridSize);
 var color = [, "#3C9EE7", "#E7993C",
             "#E73C99", "#3CE746", "#E7993C"];
   
-document.querySelectorAll(".grid-item").forEach(
-    e => {e.addEventListener("mouseover", (
-        e => e.target.style.backgroundColor = color[Math.floor(Math.random() * color.length)])
-)});
+function colorGrid() {                               // function that adds color to the divs
+    document.querySelectorAll(".grid-item").forEach(
+        e => {e.addEventListener("mouseover", (
+            e => e.target.style.backgroundColor = color[Math.floor(Math.random() * color.length)])
+    )});
+}
+
+colorGrid();

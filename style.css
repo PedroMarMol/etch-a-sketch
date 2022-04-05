@@ -15,7 +15,10 @@
 #btnColorReset, #btnGridReset {
     width: 150px;
     height: 50px;
-    margin: 30px 30px;
+    margin: 15px 15px;
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
 }
 
 .grid-item {
